@@ -238,6 +238,142 @@ const StatsSection = () => (
   </section>
 );
 
+// About Us & Leadership Section
+const AboutSection = () => {
+  const [imgErr, setImgErr] = useState(false);
+
+  return (
+    <section id="about" className="py-16 md:py-24 bg-gradient-to-br from-slate-50 via-white to-cyan-50/40 relative overflow-hidden border-y border-cyan-100/80">
+      <div className="container relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left Column: Image Frame with Modern Accent Styling */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="lg:col-span-5 relative"
+          >
+            <div className="relative mx-auto max-w-md lg:max-w-none">
+              {/* Soft Ambient Background Glow */}
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-cyan-400/20 to-teal-500/20 rounded-3xl blur-2xl opacity-70 pointer-events-none" />
+
+              {/* Main Image Container */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 group">
+                {!imgErr ? (
+                  <img
+                    src="/images/dharmik_mehta_about.png"
+                    alt="Dharmik Mehta - Airvion Engineers"
+                    onError={() => setImgErr(true)}
+                    className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+                  />
+                ) : (
+                  <div className="w-full h-96 flex flex-col items-center justify-center bg-gradient-to-br from-teal-900 via-primary to-slate-900 text-white p-8 text-center">
+                    <Award className="w-20 h-20 text-cyan-400 mb-4" />
+                    <h3 className="text-2xl font-bold">Dharmik Mehta</h3>
+                    <p className="text-sm text-cyan-200 mt-1">Founder & HVAC Engineering Lead</p>
+                  </div>
+                )}
+
+                {/* Bottom Overlay Gradient Badge */}
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent p-6 text-white">
+                  <div>
+                    <p className="text-lg font-extrabold tracking-tight text-white">Dharmik Mehta</p>
+                    <p className="text-xs text-cyan-300 font-medium">Founder & HVAC Specialist | Airvion Engineers</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right Column: Bio Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="lg:col-span-7 space-y-6"
+          >
+            <div>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
+                Delivering Reliable & Efficient HVAC Solutions Across Gujarat
+              </h2>
+            </div>
+
+            <div className="space-y-4 text-gray-700 text-base md:text-lg leading-relaxed">
+              <p>
+                <strong>Dharmik Mehta</strong> is an HVAC professional associated with Airvion Engineers, Ahmedabad, focused on delivering reliable, efficient, and practical air-conditioning solutions for commercial and industrial requirements. With a customer-focused approach and a strong understanding of modern HVAC systems, he works toward providing solutions that combine performance, energy efficiency, technical quality, and long-term reliability.
+              </p>
+
+              <p>
+                Through Airvion Engineers, his focus extends across HVAC system planning, equipment solutions, installation support, and dependable customer service. He believes in understanding each project's unique requirements and delivering solutions designed for optimum comfort, operational efficiency, and lasting performance.
+              </p>
+
+              <p>
+                Driven by professionalism, technical excellence, and customer satisfaction, Dharmik continues to build trusted relationships while contributing to efficient and future-ready HVAC solutions.
+              </p>
+            </div>
+
+            {/* Quick Core Strengths Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+              <div className="p-4 rounded-xl bg-white border border-cyan-200/80 shadow-sm flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-cyan-50 text-primary flex items-center justify-center flex-shrink-0">
+                  <Shield className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-gray-900">Technical Quality</p>
+                  <p className="text-[11px] text-gray-500">Precision Engineering</p>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white border border-cyan-200/80 shadow-sm flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-cyan-50 text-primary flex items-center justify-center flex-shrink-0">
+                  <Zap className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-gray-900">Energy Efficiency</p>
+                  <p className="text-[11px] text-gray-500">Optimum Comfort</p>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white border border-cyan-200/80 shadow-sm flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-cyan-50 text-primary flex items-center justify-center flex-shrink-0">
+                  <Users className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-gray-900">Customer First</p>
+                  <p className="text-[11px] text-gray-500">Trusted Partner</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Action CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
+              <Button
+                size="lg"
+                onClick={() => window.open('https://wa.me/919428913898?text=Hello%20Dharmik%20Mehta,%20I%20would%20like%20to%20discuss%20an%20HVAC%20project%20with%20Airvion%20Engineers.', '_blank')}
+                className="w-full sm:w-auto bg-primary hover:bg-teal-700 text-white font-bold px-8 py-6 shadow-lg shadow-teal-500/20 gap-2 cursor-pointer"
+              >
+                <MessageCircle className="w-5 h-5" />
+                Connect with Dharmik Mehta
+              </Button>
+
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={() => window.location.href = '#contact'}
+                className="w-full sm:w-auto text-gray-900 border-gray-300 hover:bg-cyan-50 font-bold px-8 py-6 cursor-pointer"
+              >
+                Request Project Evaluation
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // Why Airvion Section with Enhanced Design
 const WhyAirvionSection = () => {
   const reasons = [
@@ -426,19 +562,25 @@ Thank you!`
                   <ChevronRight className="w-5 h-5 text-emerald-300 ml-auto opacity-70 group-hover:opacity-100 flex-shrink-0" />
                 </motion.a>
 
-                {/* Head Office Card */}
-                <div className="p-4 rounded-xl bg-white/10 border border-white/15 backdrop-blur-md text-white">
-                  <div className="flex items-start gap-4">
-                    <div className="w-11 h-11 rounded-lg bg-cyan-400 text-teal-950 flex items-center justify-center font-bold flex-shrink-0 mt-0.5">
-                      <MapPin className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-medium text-cyan-200 uppercase tracking-wider">Head Office</p>
-                      <p className="text-sm font-semibold text-white mt-0.5">Sun Avenue One, 404 4th Floor, Manekbag Shyam Road, Ahmedabad, Gujarat</p>
-                      <p className="text-xs text-cyan-300 mt-2">Founder: <strong>Dharmik Mehta</strong> | Serving All Gujarat</p>
-                    </div>
+                {/* Head Office Card with Google Maps Link */}
+                <motion.a
+                  href="https://maps.app.goo.gl/9puyxLGQSp8JAGJp6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.02 }}
+                  className="flex items-start gap-4 p-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 backdrop-blur-md transition-all text-white group cursor-pointer"
+                >
+                  <div className="w-11 h-11 rounded-lg bg-cyan-400 text-teal-950 flex items-center justify-center font-bold flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
+                    <MapPin className="w-5 h-5" />
                   </div>
-                </div>
+                  <div>
+                    <p className="text-xs font-medium text-cyan-200 uppercase tracking-wider flex items-center gap-1">
+                      Head Office <ExternalLink className="w-3 h-3" />
+                    </p>
+                    <p className="text-sm font-semibold text-white mt-0.5">Sun Avenue One, 404 4th Floor, Manekbag Shyam Road, Ahmedabad, Gujarat</p>
+                    <p className="text-xs text-cyan-300 mt-2 font-bold underline underline-offset-2">Get Directions on Google Maps →</p>
+                  </div>
+                </motion.a>
               </div>
             </div>
 
@@ -855,7 +997,7 @@ export default function Home() {
       />
 
       {/* Top Utility Contact Bar */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+      <div className="hidden md:block fixed top-0 left-0 right-0 z-50 bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
         <div className="container flex flex-wrap items-center justify-between gap-3 mx-auto">
           <div className="flex items-center gap-4 md:gap-6">
             <a href="mailto:dharmikmehta@airvionengineers.com" className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors">
@@ -875,7 +1017,7 @@ export default function Home() {
       </div>
 
       {/* Header */}
-      <header className="fixed top-8 left-0 right-0 z-40 transition-all duration-300" style={{
+      <header className="fixed top-0 md:top-8 left-0 right-0 z-40 transition-all duration-300" style={{
         backgroundColor: scrollY > 50 ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
         backdropFilter: scrollY > 50 ? 'blur(10px)' : 'none',
         boxShadow: scrollY > 50 ? '0 1px 3px rgba(0, 0, 0, 0.1)' : 'none'
@@ -898,6 +1040,7 @@ export default function Home() {
           <nav className="hidden md:flex items-center gap-8">
             <a href="#products" className="text-gray-700 hover:text-primary transition-colors font-medium">Products</a>
             <a href="#services" className="text-gray-700 hover:text-primary transition-colors font-medium">Services</a>
+            <a href="#about" className="text-gray-700 hover:text-primary transition-colors font-medium">About Us</a>
             <a href="#catalogues" className="text-gray-700 hover:text-primary transition-colors font-medium">Catalogues</a>
             <a href="#testimonials" className="text-gray-700 hover:text-primary transition-colors font-medium">Testimonials</a>
             <a href="#contact" className="text-gray-700 hover:text-primary transition-colors font-medium">Contact</a>
@@ -967,15 +1110,6 @@ export default function Home() {
             </div>
           </motion.div>
         </div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <ChevronDown className="w-6 h-6 text-gray-500" />
-        </motion.div>
       </section>
 
       {/* Products Section */}
@@ -1068,6 +1202,9 @@ export default function Home() {
 
       {/* Stats Section */}
       <StatsSection />
+
+      {/* About Us & Leadership Section */}
+      <AboutSection />
 
       {/* Why Airvion Section */}
       <WhyAirvionSection />
@@ -1207,11 +1344,24 @@ export default function Home() {
             </div>
             <div>
               <h4 className="font-bold text-white mb-4">Location</h4>
-              <p className="text-sm text-gray-400 mb-4">Sun Avenue 1, 404 4th Floor, Manekbag Shyam Road, Ahmedabad</p>
+              <a
+                href="https://maps.app.goo.gl/9puyxLGQSp8JAGJp6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group"
+              >
+                <p className="text-sm text-gray-400 group-hover:text-white transition-colors mb-1">
+                  Sun Avenue 1, 404 4th Floor, Manekbag Shyam Road, Ahmedabad
+                </p>
+                <span className="inline-flex items-center gap-1 text-xs text-cyan-400 group-hover:text-cyan-300 font-semibold mb-4 transition-colors">
+                  <MapPin className="w-3.5 h-3.5" />
+                  Get Directions on Google Maps →
+                </span>
+              </a>
               <h4 className="font-bold text-white mb-3 text-sm uppercase tracking-wider">Follow Us</h4>
               <div className="flex gap-3">
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/share/19GdFdPJb8/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
@@ -1221,7 +1371,7 @@ export default function Home() {
                 </a>
 
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/ddharmik-mmehta-03a5317a/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
@@ -1231,7 +1381,7 @@ export default function Home() {
                 </a>
 
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/airvionengineers?igsh=bG5icnFnOTA0bGp5"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
