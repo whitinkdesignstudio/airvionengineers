@@ -89,11 +89,11 @@ const ProductCard = ({ title, description, image, features, icon: Icon }: any) =
               loading="lazy"
               decoding="async"
               onError={() => setImgError(true)}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              className="w-full h-full object-cover object-top"
             />
           ) : (
             <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-teal-900 to-slate-900 text-white p-6 text-center">
-              <Icon className="w-16 h-16 text-cyan-400 mb-3 group-hover:scale-110 transition-transform duration-300" />
+              <Icon className="w-16 h-16 text-cyan-400 mb-3" />
               <p className="font-bold text-lg text-white">{title}</p>
               <p className="text-xs text-cyan-200 mt-1">Airvion Commercial Systems</p>
             </div>
@@ -139,7 +139,7 @@ const ServiceCard = ({ icon: Icon, title, description, image }: any) => (
           alt={title}
           loading="lazy"
           decoding="async"
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          className="w-full h-full object-cover object-top"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
       </div>
@@ -265,7 +265,7 @@ const AboutSection = () => {
                     src="/images/dharmik_mehta_about.png"
                     alt="Dharmik Mehta - Airvion Engineers"
                     onError={() => setImgErr(true)}
-                    className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-auto object-cover"
                   />
                 ) : (
                   <div className="w-full h-96 flex flex-col items-center justify-center bg-gradient-to-br from-teal-900 via-primary to-slate-900 text-white p-8 text-center">
@@ -577,7 +577,7 @@ Thank you!`
                     <p className="text-xs font-medium text-cyan-200 uppercase tracking-wider flex items-center gap-1">
                       Head Office <ExternalLink className="w-3 h-3" />
                     </p>
-                    <p className="text-sm font-semibold text-white mt-0.5">Sun Avenue One, 404 4th Floor, Manekbag Shyam Road, Ahmedabad, Gujarat</p>
+                    <p className="text-sm font-semibold text-white mt-0.5">Sun Avenue One – 404, 4th Floor, Manekbaugh – Shyamal Road, Near Golden Tulip Bunglows, Ambawadi, Ahmedabad, Gujarat – 380015.</p>
                     <p className="text-xs text-cyan-300 mt-2 font-bold underline underline-offset-2">Get Directions on Google Maps →</p>
                   </div>
                 </motion.a>
@@ -1351,7 +1351,7 @@ export default function Home() {
                 className="block group"
               >
                 <p className="text-sm text-gray-400 group-hover:text-white transition-colors mb-1">
-                  Sun Avenue 1, 404 4th Floor, Manekbag Shyam Road, Ahmedabad
+                  Sun Avenue One – 404, 4th Floor, Manekbaugh – Shyamal Road, Near Golden Tulip Bunglows, Ambawadi, Ahmedabad, Gujarat – 380015.
                 </p>
                 <span className="inline-flex items-center gap-1 text-xs text-cyan-400 group-hover:text-cyan-300 font-semibold mb-4 transition-colors">
                   <MapPin className="w-3.5 h-3.5" />
