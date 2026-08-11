@@ -13,7 +13,7 @@ import { toast } from 'sonner';
  * Animation: Smooth parallax, section reveals, hover effects, animated counters
  */
 
-// Animated Counter Component
+// Animated Counter Component - Mobile Optimized
 const AnimatedCounter = ({ target, label, suffix = '' }: { target: number; label: string; suffix?: string }) => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -62,26 +62,26 @@ const AnimatedCounter = ({ target, label, suffix = '' }: { target: number; label
       transition={{ duration: 0.6 }}
       className="text-center"
     >
-      <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
+      <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-1.5 md:mb-2">
         {count}{suffix}
       </div>
-      <p className="text-gray-600 font-medium text-sm md:text-base">{label}</p>
+      <p className="text-gray-600 font-medium text-xs sm:text-sm md:text-base">{label}</p>
     </motion.div>
   );
 };
 
-// Product Card Component with Enhanced Design
+// Product Card Component with Enhanced Design - Mobile Optimized
 const ProductCard = ({ title, description, image, features, icon: Icon }: any) => {
   const [imgError, setImgError] = useState(false);
 
   return (
     <motion.div
-      whileHover={{ y: -12 }}
+      whileHover={{ y: -8 }}
       transition={{ duration: 0.3 }}
       className="group h-full"
     >
       <Card className="p-0 py-0 gap-0 overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
-        <div className="relative h-64 md:h-72 overflow-hidden bg-gradient-to-br from-slate-900 via-teal-950 to-slate-900">
+        <div className="relative h-48 sm:h-56 md:h-64 lg:h-72 overflow-hidden bg-gradient-to-br from-slate-900 via-teal-950 to-slate-900">
           {!imgError ? (
             <img
               src={image}
@@ -92,30 +92,30 @@ const ProductCard = ({ title, description, image, features, icon: Icon }: any) =
               className="w-full h-full object-cover object-top"
             />
           ) : (
-            <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-teal-900 to-slate-900 text-white p-6 text-center">
-              <Icon className="w-16 h-16 text-cyan-400 mb-3" />
-              <p className="font-bold text-lg text-white">{title}</p>
+            <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-teal-900 to-slate-900 text-white p-4 md:p-6 text-center">
+              <Icon className="w-12 md:w-16 h-12 md:h-16 text-cyan-400 mb-2 md:mb-3" />
+              <p className="font-bold text-base md:text-lg text-white">{title}</p>
               <p className="text-xs text-cyan-200 mt-1">Airvion Commercial Systems</p>
             </div>
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
         </div>
-        <div className="p-6 md:p-8 flex flex-col flex-grow">
-          <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">{title}</h3>
-          <p className="text-gray-600 mb-6 text-sm md:text-base leading-relaxed flex-grow">{description}</p>
-          <div className="space-y-2 mb-6">
+        <div className="p-4 md:p-6 lg:p-8 flex flex-col flex-grow">
+          <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-2 md:mb-3">{title}</h3>
+          <p className="text-gray-600 mb-4 md:mb-6 text-xs md:text-sm lg:text-base leading-relaxed flex-grow">{description}</p>
+          <div className="space-y-1.5 md:space-y-2 mb-4 md:mb-6">
             {features.slice(0, 3).map((feature: string, i: number) => (
-              <div key={i} className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-sm text-gray-700">{feature}</span>
+              <div key={i} className="flex items-start gap-2 md:gap-3">
+                <CheckCircle className="w-4 md:w-5 h-4 md:h-5 text-primary flex-shrink-0 mt-0.5" />
+                <span className="text-xs md:text-sm text-gray-700">{feature}</span>
               </div>
             ))}
           </div>
           <Button
             onClick={() => window.open(`https://wa.me/919428913898?text=Hello%20Airvion%20Engineers,%20I%20would%20like%20to%20inquire%20about%20${encodeURIComponent(title)}.`, '_blank')}
-            className="w-full bg-primary hover:bg-teal-700 text-white gap-2 mt-auto"
+            className="w-full bg-primary hover:bg-teal-700 text-white gap-2 mt-auto text-xs md:text-sm py-2 md:py-3"
           >
-            <MessageCircle className="w-4 h-4" />
+            <MessageCircle className="w-3.5 md:w-4 h-3.5 md:h-4" />
             Inquire on WhatsApp
           </Button>
         </div>
@@ -124,16 +124,16 @@ const ProductCard = ({ title, description, image, features, icon: Icon }: any) =
   );
 };
 
-// Service Card Component
+// Service Card Component - Mobile Optimized
 const ServiceCard = ({ icon: Icon, title, description, image }: any) => (
   <motion.div
-    whileHover={{ y: -6 }}
+    whileHover={{ y: -4 }}
     transition={{ duration: 0.3 }}
     className="group h-full"
   >
     <Card className="p-0 py-0 gap-0 border border-cyan-200 hover:border-primary hover:shadow-2xl transition-all duration-300 h-full flex flex-col overflow-hidden bg-white rounded-2xl">
       {/* 100% Visible Feature Image Banner */}
-      <div className="relative h-44 w-full overflow-hidden bg-slate-100">
+      <div className="relative h-32 sm:h-40 md:h-44 w-full overflow-hidden bg-slate-100">
         <img
           src={image || '/images/hero_hvac_building.png'}
           alt={title}
@@ -145,14 +145,14 @@ const ServiceCard = ({ icon: Icon, title, description, image }: any) => (
       </div>
 
       {/* Content Body */}
-      <div className="p-5 md:p-6 flex flex-col flex-grow bg-white">
-        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">{title}</h3>
-        <p className="text-gray-600 text-sm leading-relaxed flex-grow">{description}</p>
+      <div className="p-4 md:p-5 lg:p-6 flex flex-col flex-grow bg-white">
+        <h3 className="text-base md:text-lg lg:text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">{title}</h3>
+        <p className="text-gray-600 text-xs md:text-sm leading-relaxed flex-grow">{description}</p>
         <Button
           onClick={() => window.open(`https://wa.me/919428913898?text=Hello%20Airvion%20Engineers,%20I%20would%20like%20to%20get%20service%20for%20${encodeURIComponent(title)}.`, '_blank')}
-          className="w-full bg-primary hover:bg-teal-700 text-white gap-2 mt-4 text-sm font-bold py-2.5 shadow-md cursor-pointer"
+          className="w-full bg-primary hover:bg-teal-700 text-white gap-2 mt-3 md:mt-4 text-xs md:text-sm font-bold py-2 md:py-2.5 shadow-md cursor-pointer"
         >
-          <MessageCircle className="w-4 h-4" />
+          <MessageCircle className="w-3.5 md:w-4 h-3.5 md:h-4" />
           Get Service
         </Button>
       </div>
@@ -160,26 +160,26 @@ const ServiceCard = ({ icon: Icon, title, description, image }: any) => (
   </motion.div>
 );
 
-// Brand Logo Carousel Component using Real Partner Logos
+// Brand Logo Carousel Component using Real Partner Logos - Mobile Optimized
 const BrandCarousel = () => {
   const logoList = Array.from({ length: 14 }, (_, i) => `/images/logos/logo${i + 1}.png`);
 
   return (
-    <div className="relative overflow-hidden py-10 bg-gradient-to-r from-slate-50 via-cyan-50/40 to-slate-50 border-y border-cyan-100/80">
+    <div className="relative overflow-hidden py-6 md:py-10 bg-gradient-to-r from-slate-50 via-cyan-50/40 to-slate-50 border-y border-cyan-100/80">
       {/* Soft Vignette Edge Fades */}
-      <div className="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-      <div className="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+      <div className="absolute top-0 bottom-0 left-0 w-12 sm:w-16 md:w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+      <div className="absolute top-0 bottom-0 right-0 w-12 sm:w-16 md:w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
       <motion.div
         animate={{ x: ['0%', '-50%'] }}
         transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
         style={{ willChange: 'transform' }}
-        className="flex gap-8 items-center whitespace-nowrap"
+        className="flex gap-4 md:gap-6 lg:gap-8 items-center whitespace-nowrap"
       >
         {[...logoList, ...logoList].map((logoSrc, i) => (
           <div
             key={i}
-            className="flex-shrink-0 w-48 h-28 bg-white rounded-xl border border-gray-200/90 shadow-sm flex items-center justify-center p-2 hover:shadow-lg hover:border-primary transition-all duration-300 group overflow-hidden"
+            className="flex-shrink-0 w-32 h-20 sm:w-40 sm:h-24 md:w-48 md:h-28 bg-white rounded-lg md:rounded-xl border border-gray-200/90 shadow-sm flex items-center justify-center p-1.5 md:p-2 hover:shadow-lg hover:border-primary transition-all duration-300 group overflow-hidden"
           >
             <img
               src={logoSrc}
@@ -199,9 +199,9 @@ const BrandCarousel = () => {
   );
 };
 
-// Stats Section with Enhanced Design
+// Stats Section with Enhanced Design - Mobile Optimized
 const StatsSection = () => (
-  <section className="py-12 md:py-16 bg-gradient-to-br from-cyan-50 via-white to-teal-50 relative overflow-hidden">
+  <section className="py-10 md:py-14 lg:py-16 bg-gradient-to-br from-cyan-50 via-white to-teal-50 relative overflow-hidden">
     <div className="absolute inset-0 opacity-5">
       <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
         <defs>
@@ -213,22 +213,22 @@ const StatsSection = () => (
       </svg>
     </div>
 
-    <div className="container relative z-10">
+    <div className="container relative z-10 px-4 md:px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-8 md:mb-10"
+        className="text-center mb-8 md:mb-10 lg:mb-12"
       >
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 md:mb-4">
           Our Track Record
         </h2>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-2">
           Proven expertise in delivering premium HVAC solutions across Gujarat
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-5xl mx-auto">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 md:gap-8 lg:gap-10 max-w-5xl mx-auto">
         <AnimatedCounter target={12} label="Years Experience" suffix="+" />
         <AnimatedCounter target={100} label="Corporate Clients" suffix="+" />
         <AnimatedCounter target={24} label="Support" suffix="/7" />
@@ -238,14 +238,14 @@ const StatsSection = () => (
   </section>
 );
 
-// About Us & Leadership Section
+// About Us & Leadership Section - Mobile Optimized
 const AboutSection = () => {
   const [imgErr, setImgErr] = useState(false);
 
   return (
-    <section id="about" className="py-16 md:py-24 bg-gradient-to-br from-slate-50 via-white to-cyan-50/40 relative overflow-hidden border-y border-cyan-100/80">
-      <div className="container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <section id="about" className="py-12 md:py-16 lg:py-24 bg-gradient-to-br from-slate-50 via-white to-cyan-50/40 relative overflow-hidden border-y border-cyan-100/80">
+      <div className="container relative z-10 px-4 md:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 lg:gap-12 xl:gap-16 items-center">
           {/* Left Column: Image Frame with Modern Accent Styling */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -292,10 +292,10 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-7 space-y-6"
+            className="lg:col-span-7 space-y-4 md:space-y-6"
           >
             <div>
-              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
                 Delivering Reliable & Efficient HVAC Solutions Across Gujarat
               </h2>
             </div>
@@ -494,54 +494,54 @@ Thank you!`
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-cyan-400/20 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-teal-400/20 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-10 items-start lg:items-center relative z-10">
             {/* Left Column: Heading & Contact Pills */}
-            <div className="lg:col-span-6 space-y-6">
+            <div className="lg:col-span-6 space-y-4 md:space-y-6">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-cyan-200 text-xs font-semibold uppercase tracking-wider border border-white/20">
                 <Shield className="w-4 h-4 text-cyan-300" />
                 Gujarat's Trusted HVAC Engineering Partner
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
                 Elevate Your Facility With Industrial-Grade HVAC Engineering
               </h2>
 
-              <p className="text-lg text-cyan-100/90 leading-relaxed font-normal">
+              <p className="text-sm md:text-base lg:text-lg text-cyan-100/90 leading-relaxed font-normal">
                 Partner with Airvion Engineers for precision VRF, Chiller, AHU, and Ductable climate solutions. Connect with our senior specialists today for a complimentary technical evaluation and bespoke quote across Gujarat.
               </p>
 
-              {/* Quick Contact Info Badges */}
-              <div className="space-y-3 pt-2">
+              {/* Quick Contact Info Badges - Mobile Optimized */}
+              <div className="space-y-2 md:space-y-3 pt-2">
                 {/* Official Email Card */}
                 <motion.a
                   href="mailto:dharmikmehta@airvionengineers.com"
-                  whileHover={{ scale: 1.02 }}
-                  className="flex items-center gap-4 p-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 backdrop-blur-md transition-all text-white group"
+                  whileHover={{ scale: 1.01 }}
+                  className="flex items-center gap-3 md:gap-4 p-3 md:p-4 rounded-lg md:rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 backdrop-blur-md transition-all text-white group"
                 >
-                  <div className="w-11 h-11 rounded-lg bg-cyan-400 text-teal-950 flex items-center justify-center font-bold flex-shrink-0 group-hover:scale-110 transition-transform">
-                    <Mail className="w-5 h-5" />
+                  <div className="w-9 md:w-11 h-9 md:h-11 rounded-lg bg-cyan-400 text-teal-950 flex items-center justify-center font-bold flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <Mail className="w-4 md:w-5 h-4 md:h-5" />
                   </div>
-                  <div className="overflow-hidden">
+                  <div className="overflow-hidden flex-1 min-w-0">
                     <p className="text-xs font-medium text-cyan-200 uppercase tracking-wider">Official Email</p>
-                    <p className="text-base md:text-lg font-bold tracking-wide text-white truncate">dharmikmehta@airvionengineers.com</p>
+                    <p className="text-sm md:text-base lg:text-lg font-bold tracking-wide text-white truncate">dharmikmehta@airvionengineers.com</p>
                   </div>
-                  <ChevronRight className="w-5 h-5 text-cyan-300 ml-auto opacity-70 group-hover:opacity-100 flex-shrink-0" />
+                  <ChevronRight className="w-4 md:w-5 h-4 md:h-5 text-cyan-300 ml-auto opacity-70 group-hover:opacity-100 flex-shrink-0" />
                 </motion.a>
 
                 {/* Direct Phone Card */}
                 <motion.a
                   href="tel:+919428913898"
-                  whileHover={{ scale: 1.02 }}
-                  className="flex items-center gap-4 p-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 backdrop-blur-md transition-all text-white group"
+                  whileHover={{ scale: 1.01 }}
+                  className="flex items-center gap-3 md:gap-4 p-3 md:p-4 rounded-lg md:rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 backdrop-blur-md transition-all text-white group"
                 >
-                  <div className="w-11 h-11 rounded-lg bg-teal-400 text-teal-950 flex items-center justify-center font-bold flex-shrink-0 group-hover:scale-110 transition-transform">
-                    <Phone className="w-5 h-5" />
+                  <div className="w-9 md:w-11 h-9 md:h-11 rounded-lg bg-teal-400 text-teal-950 flex items-center justify-center font-bold flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <Phone className="w-4 md:w-5 h-4 md:h-5" />
                   </div>
                   <div>
                     <p className="text-xs font-medium text-teal-200 uppercase tracking-wider">Direct Hotline</p>
-                    <p className="text-xl font-extrabold tracking-wide text-white">+91 94289 13898</p>
+                    <p className="text-base md:text-lg lg:text-xl font-extrabold tracking-wide text-white">+91 94289 13898</p>
                   </div>
-                  <ChevronRight className="w-5 h-5 text-teal-300 ml-auto opacity-70 group-hover:opacity-100 flex-shrink-0" />
+                  <ChevronRight className="w-4 md:w-5 h-4 md:h-5 text-teal-300 ml-auto opacity-70 group-hover:opacity-100 flex-shrink-0" />
                 </motion.a>
 
                 {/* WhatsApp Card */}
@@ -549,17 +549,17 @@ Thank you!`
                   href="https://wa.me/919428913898?text=Hello%20Airvion%20Engineers,%20I%20would%20like%20to%20inquire%20about%20HVAC%20solutions."
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.02 }}
-                  className="flex items-center gap-4 p-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 backdrop-blur-md transition-all text-white group"
+                  whileHover={{ scale: 1.01 }}
+                  className="flex items-center gap-3 md:gap-4 p-3 md:p-4 rounded-lg md:rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 backdrop-blur-md transition-all text-white group"
                 >
-                  <div className="w-11 h-11 rounded-lg bg-emerald-400 text-teal-950 flex items-center justify-center font-bold flex-shrink-0 group-hover:scale-110 transition-transform">
-                    <MessageCircle className="w-5 h-5" />
+                  <div className="w-9 md:w-11 h-9 md:h-11 rounded-lg bg-emerald-400 text-teal-950 flex items-center justify-center font-bold flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <MessageCircle className="w-4 md:w-5 h-4 md:h-5" />
                   </div>
                   <div>
                     <p className="text-xs font-medium text-emerald-200 uppercase tracking-wider">Instant Chat</p>
-                    <p className="text-xl font-extrabold tracking-wide text-white">WhatsApp Support</p>
+                    <p className="text-base md:text-lg lg:text-xl font-extrabold tracking-wide text-white">WhatsApp Support</p>
                   </div>
-                  <ChevronRight className="w-5 h-5 text-emerald-300 ml-auto opacity-70 group-hover:opacity-100 flex-shrink-0" />
+                  <ChevronRight className="w-4 md:w-5 h-4 md:h-5 text-emerald-300 ml-auto opacity-70 group-hover:opacity-100 flex-shrink-0" />
                 </motion.a>
 
                 {/* Head Office Card with Google Maps Link */}
@@ -567,18 +567,18 @@ Thank you!`
                   href="https://maps.app.goo.gl/9puyxLGQSp8JAGJp6"
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.02 }}
-                  className="flex items-start gap-4 p-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 backdrop-blur-md transition-all text-white group cursor-pointer"
+                  whileHover={{ scale: 1.01 }}
+                  className="flex items-start gap-3 md:gap-4 p-3 md:p-4 rounded-lg md:rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 backdrop-blur-md transition-all text-white group cursor-pointer"
                 >
-                  <div className="w-11 h-11 rounded-lg bg-cyan-400 text-teal-950 flex items-center justify-center font-bold flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
-                    <MapPin className="w-5 h-5" />
+                  <div className="w-9 md:w-11 h-9 md:h-11 rounded-lg bg-cyan-400 text-teal-950 flex items-center justify-center font-bold flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
+                    <MapPin className="w-4 md:w-5 h-4 md:h-5" />
                   </div>
                   <div>
                     <p className="text-xs font-medium text-cyan-200 uppercase tracking-wider flex items-center gap-1">
                       Head Office <ExternalLink className="w-3 h-3" />
                     </p>
-                    <p className="text-sm font-semibold text-white mt-0.5">Sun Avenue One – 404, 4th Floor, Manekbaugh – Shyamal Road, Near Golden Tulip Bunglows, Ambawadi, Ahmedabad, Gujarat – 380015.</p>
-                    <p className="text-xs text-cyan-300 mt-2 font-bold underline underline-offset-2">Get Directions on Google Maps →</p>
+                    <p className="text-xs md:text-sm font-semibold text-white mt-0.5">Sun Avenue One – 404, 4th Floor, Manekbaugh – Shyamal Road, Near Golden Tulip Bunglows, Ambawadi, Ahmedabad, Gujarat – 380015.</p>
+                    <p className="text-xs text-cyan-300 mt-1.5 md:mt-2 font-bold underline underline-offset-2">Get Directions on Google Maps →</p>
                   </div>
                 </motion.a>
               </div>
@@ -889,42 +889,42 @@ export default function Home() {
     {
       title: 'Hi Wall Split AC',
       description: 'Premium wall-mounted cooling solution for commercial, industrial, and residential spaces',
-      image: '/images/products/split_ac.png',
+      image: '/images/product%20card/split_ac_600x288.jpg',
       icon: Wind,
       features: ['Energy Efficient', 'Quiet Operation', 'Smart Controls', 'Easy Installation', 'Eco-Friendly Refrigerant']
     },
     {
       title: 'Cassette Systems',
       description: 'Ceiling-mounted units for seamless 360-degree integration',
-      image: '/images/products/cassette_ac.png',
+      image: '/images/product%20card/cassette_ac_600x288.jpg',
       icon: Droplets,
       features: ['Compact Design', 'Even Distribution', 'Aesthetic Appeal', 'Low Noise', 'Advanced Filtration']
     },
     {
       title: 'VRF Systems',
       description: 'Advanced variable refrigerant flow technology for multi-zone control',
-      image: '/images/products/vrf_system.png',
+      image: '/images/product%20card/vrf_system_600x288.jpg',
       icon: Gauge,
       features: ['Multi-Zone Control', 'Energy Savings', 'Flexible Installation', 'Smart Zoning', 'Remote Monitoring']
     },
     {
       title: 'Chiller System',
       description: 'Industrial grade liquid chillers engineered for high-capacity cooling',
-      image: '/images/products/chiller_system.png',
+      image: '/images/product%20card/chiller_system_600x288.jpg',
       icon: Shield,
       features: ['Industrial Capacity', 'Precise Temp Control', 'High Efficiency', 'Long Operational Life', '24/7 Continuous Duty']
     },
     {
       title: 'AHU System',
       description: 'Air Handling Units engineered for clean air circulation and climate control',
-      image: '/images/products/ahu_system.png',
+      image: '/images/product%20card/ahu_air_handling_unit_600x288.jpg',
       icon: Zap,
       features: ['High Airflow Delivery', 'Advanced Filtration', 'Humidity Control', 'Energy Efficient Fan', 'Heavy Duty Casing']
     },
     {
       title: 'Ductable System',
       description: 'Concealed duct cooling systems engineered for large commercial spaces',
-      image: '/images/products/ductable_ac.png',
+      image: '/images/product%20card/ductable_ac_600x288.jpg',
       icon: Wrench,
       features: ['Concealed Design', 'High Static Pressure', 'Uniform Cooling', 'Low Power Consumption', 'Easy Maintenance Access']
     },
@@ -996,80 +996,80 @@ export default function Home() {
         style={{ width: `${(scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100}%` }}
       />
 
-      {/* Top Utility Contact Bar */}
-      <div className="hidden md:block fixed top-0 left-0 right-0 z-50 bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
-        <div className="container flex flex-wrap items-center justify-between gap-3 mx-auto">
-          <div className="flex items-center gap-4 md:gap-6">
-            <a href="mailto:dharmikmehta@airvionengineers.com" className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors">
-              <Mail className="w-3.5 h-3.5 text-cyan-400" />
-              <span>dharmikmehta@airvionengineers.com</span>
+      {/* Top Utility Contact Bar - Mobile Optimized */}
+      <div className="hidden md:block fixed top-0 left-0 right-0 z-50 bg-slate-900 text-slate-300 text-xs py-2 px-3 lg:px-4 border-b border-slate-800">
+        <div className="container flex flex-wrap items-center justify-between gap-2 lg:gap-3 mx-auto">
+          <div className="flex items-center gap-3 lg:gap-6 flex-wrap">
+            <a href="mailto:dharmikmehta@airvionengineers.com" className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors truncate">
+              <Mail className="w-3.5 h-3.5 text-cyan-400 flex-shrink-0" />
+              <span className="truncate">dharmikmehta@airvionengineers.com</span>
             </a>
-            <a href="tel:+919428913898" className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors">
+            <a href="tel:+919428913898" className="flex items-center gap-1.5 hover:text-cyan-400 transition-colors flex-shrink-0">
               <Phone className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Hotline: +91 94289 13898</span>
+              <span className="hidden xl:inline">Hotline:</span> +91 94289 13898
             </a>
           </div>
-          <div className="hidden sm:flex items-center gap-4 text-xs text-slate-400">
+          <div className="hidden lg:flex items-center gap-4 text-xs text-slate-400 flex-shrink-0">
             <span>Founder: <strong className="text-white">Dharmik Mehta</strong></span>
             <span className="text-cyan-400 font-medium">Ahmedabad, Gujarat</span>
           </div>
         </div>
       </div>
 
-      {/* Header */}
+      {/* Header - Mobile Optimized */}
       <header className="fixed top-0 md:top-8 left-0 right-0 z-40 transition-all duration-300" style={{
         backgroundColor: scrollY > 50 ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
         backdropFilter: scrollY > 50 ? 'blur(10px)' : 'none',
         boxShadow: scrollY > 50 ? '0 1px 3px rgba(0, 0, 0, 0.1)' : 'none'
       }}>
-        <div className="container flex items-center justify-between h-20 pt-3">
+        <div className="container flex items-center justify-between h-16 md:h-20 px-3 md:px-4 pt-2 md:pt-3">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="flex items-center overflow-visible pt-1"
+            className="flex items-center overflow-visible"
           >
-            <a href="#" className="flex items-center overflow-visible">
+            <a href="#" className="flex items-center overflow-visible flex-shrink-0">
               <img
                 src="/images/airvion_logo.png"
                 alt="Airvion Engineers"
-                className="h-16 md:h-18 w-auto object-contain scale-[1.75] origin-left translate-y-1 hover:scale-[1.85] transition-transform duration-300"
+                className="h-12 md:h-16 lg:h-18 w-auto object-contain scale-[1.6] md:scale-[1.75] origin-left translate-y-0.5 md:translate-y-1 hover:scale-[1.7] md:hover:scale-[1.85] transition-transform duration-300"
               />
             </a>
           </motion.div>
 
-          <nav className="hidden md:flex items-center gap-8">
-            <a href="#products" className="text-gray-700 hover:text-primary transition-colors font-medium">Products</a>
-            <a href="#services" className="text-gray-700 hover:text-primary transition-colors font-medium">Services</a>
-            <a href="#about" className="text-gray-700 hover:text-primary transition-colors font-medium">About Us</a>
-            <a href="#catalogues" className="text-gray-700 hover:text-primary transition-colors font-medium">Catalogues</a>
-            <a href="#testimonials" className="text-gray-700 hover:text-primary transition-colors font-medium">Testimonials</a>
-            <a href="#contact" className="text-gray-700 hover:text-primary transition-colors font-medium">Contact</a>
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
+            <a href="#products" className="text-sm xl:text-base text-gray-700 hover:text-primary transition-colors font-medium">Products</a>
+            <a href="#services" className="text-sm xl:text-base text-gray-700 hover:text-primary transition-colors font-medium">Services</a>
+            <a href="#about" className="text-sm xl:text-base text-gray-700 hover:text-primary transition-colors font-medium">About Us</a>
+            <a href="#catalogues" className="text-sm xl:text-base text-gray-700 hover:text-primary transition-colors font-medium">Catalogues</a>
+            <a href="#testimonials" className="text-sm xl:text-base text-gray-700 hover:text-primary transition-colors font-medium">Testimonials</a>
+            <a href="#contact" className="text-sm xl:text-base text-gray-700 hover:text-primary transition-colors font-medium">Contact</a>
           </nav>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 md:gap-3 flex-shrink-0">
             <Button
               variant="outline"
               size="sm"
               onClick={() => window.location.href = 'tel:+919428913898'}
-              className="hidden sm:flex gap-2 border-primary text-primary hover:bg-cyan-50 cursor-pointer"
+              className="hidden sm:flex gap-2 border-primary text-primary hover:bg-cyan-50 cursor-pointer text-xs md:text-sm px-3 md:px-4 py-2"
             >
-              <Phone className="w-4 h-4" />
-              Call Us
+              <Phone className="w-3.5 md:w-4 h-3.5 md:h-4" />
+              <span className="hidden md:inline">Call Us</span>
             </Button>
             <Button
               size="sm"
               onClick={() => window.open('https://wa.me/919428913898?text=Hello%20Airvion%20Engineers,%20I%20would%20like%20to%20inquire%20about%20HVAC%20solutions.', '_blank')}
-              className="bg-primary hover:bg-teal-700 text-white gap-2 cursor-pointer"
+              className="bg-primary hover:bg-teal-700 text-white gap-1.5 md:gap-2 cursor-pointer text-xs md:text-sm px-3 md:px-4 py-2"
             >
-              <MessageCircle className="w-4 h-4" />
-              WhatsApp
+              <MessageCircle className="w-3.5 md:w-4 h-3.5 md:h-4" />
+              <span className="hidden md:inline">WhatsApp</span>
             </Button>
           </div>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden bg-gradient-to-b from-cyan-50/60 via-slate-50 to-white">
+      {/* Hero Section - Mobile Optimized */}
+      <section className="relative pt-20 md:pt-28 lg:pt-32 pb-10 md:pb-12 lg:pb-16 overflow-hidden bg-gradient-to-b from-cyan-50/60 via-slate-50 to-white">
         {/* Architectural HVAC Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 pointer-events-none"
@@ -1077,25 +1077,25 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none" />
 
-        <div className="container relative z-10">
+        <div className="container relative z-10 px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl"
+            className="max-w-4xl"
           >
-            <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 mb-6 leading-tight tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-gray-900 mb-4 md:mb-6 leading-tight tracking-tight">
               Powering Comfort Across Gujarat's Industries
             </h1>
-            <p className="text-xl md:text-2xl font-bold text-gray-900 mb-8 leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-gray-900 mb-6 md:mb-8 leading-relaxed max-w-3xl">
               Complete HVAC solutions under one roof. Premium sales, services, support, and expert consultancy for industrial and commercial projects across Gujarat.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               <Button
                 size="lg"
                 onClick={() => window.location.href = '#products'}
-                className="bg-primary hover:bg-teal-700 text-white font-bold px-8 py-6 shadow-lg shadow-teal-500/20 cursor-pointer"
+                className="bg-primary hover:bg-teal-700 text-white font-bold px-6 md:px-8 py-3 md:py-4 shadow-lg shadow-teal-500/20 cursor-pointer text-sm md:text-base"
               >
                 Explore Solutions
               </Button>
@@ -1103,7 +1103,7 @@ export default function Home() {
                 size="lg"
                 variant="outline"
                 onClick={() => window.location.href = '#contact'}
-                className="text-gray-900 border-gray-400 hover:bg-gray-100 font-bold px-8 py-6 cursor-pointer"
+                className="text-gray-900 border-gray-400 hover:bg-gray-100 font-bold px-6 md:px-8 py-3 md:py-4 cursor-pointer text-sm md:text-base"
               >
                 Get Free Consultation
               </Button>
@@ -1112,24 +1112,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Products Section */}
-      <section id="products" className="py-12 md:py-16 bg-gray-50">
-        <div className="container">
+      {/* Products Section - Mobile Optimized */}
+      <section id="products" className="py-10 md:py-14 lg:py-16 bg-gray-50">
+        <div className="container px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-8 md:mb-10"
+            className="text-center mb-8 md:mb-10 lg:mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 md:mb-4">
               Our Product Range
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-2">
               Premium HVAC systems designed for commercial and industrial applications
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
             {products.map((product, i) => (
               <motion.div
                 key={i}
@@ -1168,24 +1168,24 @@ export default function Home() {
       {/* PDF Technical Catalogues Section */}
       <CataloguesSection />
 
-      {/* Services Section */}
-      <section id="services" className="py-12 md:py-16 bg-gradient-to-br from-cyan-50 to-white">
-        <div className="container">
+      {/* Services Section - Mobile Optimized */}
+      <section id="services" className="py-10 md:py-14 lg:py-16 bg-gradient-to-br from-cyan-50 to-white">
+        <div className="container px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-8 md:mb-10"
+            className="text-center mb-8 md:mb-10 lg:mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 md:mb-4">
               Our Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-2">
               Comprehensive HVAC solutions covering every aspect of your needs
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6">
             {services.map((service, i) => (
               <motion.div
                 key={i}
@@ -1209,24 +1209,24 @@ export default function Home() {
       {/* Why Airvion Section */}
       <WhyAirvionSection />
 
-      {/* Testimonials Section */}
-      <section id="testimonials" className="py-12 md:py-16 bg-gradient-to-br from-cyan-50 to-white">
-        <div className="container">
+      {/* Testimonials Section - Mobile Optimized */}
+      <section id="testimonials" className="py-10 md:py-14 lg:py-16 bg-gradient-to-br from-cyan-50 to-white">
+        <div className="container px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-8 md:mb-10"
+            className="text-center mb-8 md:mb-10 lg:mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 md:mb-4">
               Trusted by Industry Leaders
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-2">
               Proven expertise serving commercial and industrial clients across Gujarat
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
             {testimonials.map((testimonial, i) => (
               <motion.div
                 key={i}
@@ -1241,21 +1241,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section id="faq" className="py-12 md:py-16 bg-white">
-        <div className="container max-w-5xl mx-auto">
+      {/* FAQ Section - Mobile Optimized */}
+      <section id="faq" className="py-10 md:py-14 lg:py-16 bg-white">
+        <div className="container max-w-5xl mx-auto px-4 md:px-6">
           {/* Top Brand Color Theme Header Banner */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="w-full bg-gradient-to-r from-cyan-100/80 via-teal-50 to-cyan-50 rounded-2xl p-5 md:p-7 mb-6 shadow-sm border border-cyan-200/80"
+            className="w-full bg-gradient-to-r from-cyan-100/80 via-teal-50 to-cyan-50 rounded-xl md:rounded-2xl p-4 md:p-6 lg:p-7 mb-6 md:mb-8 shadow-sm border border-cyan-200/80"
           >
             <div>
-              <span className="px-3.5 py-1 text-xs font-semibold tracking-wider text-teal-900 border border-teal-400/80 rounded-full inline-block mb-2 uppercase bg-white/80">
+              <span className="px-3 md:px-3.5 py-1 text-xs font-semibold tracking-wider text-teal-900 border border-teal-400/80 rounded-full inline-block mb-2 uppercase bg-white/80">
                 FAQS
               </span>
-              <h2 className="text-2xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight">
                 Frequently Asked Questions
               </h2>
             </div>
@@ -1269,15 +1269,15 @@ export default function Home() {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: i * 0.04 }}
-                className="py-6 md:py-7 px-2 cursor-pointer group transition-colors hover:bg-slate-50/50"
+                className="py-4 md:py-6 lg:py-7 px-2 md:px-3 cursor-pointer group transition-colors hover:bg-slate-50/50"
                 onClick={() => setExpandedFAQ(expandedFAQ === i ? -1 : i)}
               >
-                <div className="flex items-center justify-between gap-6">
-                  <h3 className="text-lg md:text-xl font-semibold text-gray-900 tracking-tight group-hover:text-primary transition-colors">
+                <div className="flex items-start justify-between gap-3 md:gap-6">
+                  <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 tracking-tight group-hover:text-primary transition-colors leading-tight">
                     {item.q}
                   </h3>
-                  <div className={`w-9 h-9 rounded-full border border-gray-400 flex items-center justify-center flex-shrink-0 transition-all duration-300 ${expandedFAQ === i ? 'bg-primary border-primary text-white rotate-90' : 'text-gray-600 group-hover:border-gray-800'}`}>
-                    <ChevronRight className="w-5 h-5 transition-transform" />
+                  <div className={`w-8 md:w-9 h-8 md:h-9 rounded-full border border-gray-400 flex items-center justify-center flex-shrink-0 transition-all duration-300 ${expandedFAQ === i ? 'bg-primary border-primary text-white rotate-90' : 'text-gray-600 group-hover:border-gray-800'}`}>
+                    <ChevronRight className="w-4 md:w-5 h-4 md:h-5 transition-transform" />
                   </div>
                 </div>
 
@@ -1290,7 +1290,7 @@ export default function Home() {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4 pr-12">
+                  <p className="text-gray-600 text-sm md:text-base lg:text-lg leading-relaxed mt-3 md:mt-4 pr-8 md:pr-12">
                     {item.a}
                   </p>
                 </motion.div>
@@ -1303,10 +1303,10 @@ export default function Home() {
       {/* Contact Section */}
       <ContactSection />
 
-      {/* Footer */}
-      <footer className="bg-[#0b132a] text-gray-400 py-12 border-t border-slate-800">
-        <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      {/* Footer - Mobile Optimized */}
+      <footer className="bg-[#0b132a] text-gray-400 py-10 md:py-12 lg:py-14 border-t border-slate-800">
+        <div className="container px-4 md:px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-8 md:mb-10">
             <div>
               <div className="mb-4 inline-block bg-[#0b132a] p-2.5 px-4 rounded-xl border border-cyan-500/20 shadow-md overflow-hidden">
                 <img src="/images/airvion_logo.png" alt="Airvion Engineers" className="h-12 md:h-14 w-auto object-contain scale-[1.65] origin-center brightness-0 invert my-1" />
@@ -1403,41 +1403,41 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
-            <p>&copy; 2024 Airvion Engineers. All rights reserved. | Premium HVAC Solutions for Commercial Excellence</p>
+          <div className="border-t border-gray-800 pt-6 md:pt-8 text-center text-xs md:text-sm text-gray-500">
+            <p className="px-2">&copy; 2024 Airvion Engineers. All rights reserved. | Premium HVAC Solutions for Commercial Excellence</p>
           </div>
         </div>
       </footer>
 
-      {/* Floating WhatsApp Button */}
+      {/* Floating WhatsApp Button - Mobile Optimized */}
       <motion.button
-        initial={{ bottom: '24px' }}
-        animate={{ bottom: scrollY > 500 ? '96px' : '24px' }}
+        initial={{ bottom: '20px' }}
+        animate={{ bottom: scrollY > 500 ? '88px' : '20px' }}
         transition={{ duration: 0.3 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => window.open('https://wa.me/919428913898?text=Hello%20Airvion%20Engineers,%20I%20would%20like%20to%20inquire%20about%20HVAC%20solutions.', '_blank')}
-        className="fixed right-6 md:right-8 w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-2xl flex items-center justify-center z-30 transition-colors cursor-pointer border-2 border-white/20"
+        className="fixed right-4 md:right-6 lg:right-8 w-12 md:w-14 h-12 md:h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-2xl flex items-center justify-center z-30 transition-colors cursor-pointer border-2 border-white/20"
         title="Chat with us on WhatsApp"
       >
-        <MessageCircle className="w-6 h-6" />
+        <MessageCircle className="w-5 md:w-6 h-5 md:h-6" />
       </motion.button>
 
-      {/* Sticky CTA Bar */}
+      {/* Sticky CTA Bar - Mobile Optimized */}
       <motion.div
         initial={{ y: 100 }}
         animate={{ y: scrollY > 500 ? 0 : 100 }}
         transition={{ duration: 0.3 }}
-        className="fixed bottom-0 left-0 right-0 bg-primary text-white p-4 shadow-2xl z-20 border-t-4 border-cyan-400"
+        className="fixed bottom-0 left-0 right-0 bg-primary text-white p-3 md:p-4 shadow-2xl z-20 border-t-4 border-cyan-400"
       >
-        <div className="container flex items-center justify-between">
+        <div className="container flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-4 px-4 md:px-6">
           <div>
-            <p className="font-bold">Get Expert HVAC Consultation</p>
-            <p className="text-sm text-cyan-100">Speak with our specialists today</p>
+            <p className="font-bold text-sm md:text-base">Get Expert HVAC Consultation</p>
+            <p className="text-xs md:text-sm text-cyan-100">Speak with our specialists today</p>
           </div>
           <Button
             onClick={() => window.location.href = '#contact'}
-            className="bg-white text-primary hover:bg-gray-100 font-semibold cursor-pointer"
+            className="bg-white text-primary hover:bg-gray-100 font-semibold cursor-pointer text-xs md:text-sm px-4 md:px-6 py-2 flex-shrink-0"
           >
             Contact Now
           </Button>
