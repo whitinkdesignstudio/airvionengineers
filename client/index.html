@@ -32,22 +32,113 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Airvion Engineers",
-      "description": "Complete HVAC Solutions Under One Roof",
-      "url": "https://airvion.com",
-      "telephone": "+91-9428913898",
-      "email": "dharmikmehta@airvionengineers.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Sun Avenue One – 404, 4th Floor, Manekbaugh – Shyamal Road, Near Golden Tulip Bunglows, Ambawadi",
-        "addressLocality": "Ahmedabad",
-        "addressRegion": "Gujarat",
-        "postalCode": "380015",
-        "addressCountry": "IN"
-      },
-      "areaServed": "Gujarat",
-      "priceRange": "$$"
+      "@graph": [
+        {
+          "@type": "HVACBusiness",
+          "@id": "https://airvion.com/#business",
+          "name": "Airvion Engineers",
+          "url": "https://airvion.com/",
+          "logo": "https://airvion.com/images/airvion_logo.png",
+          "image": "https://airvion.com/images/hero_hvac_building.png",
+          "description": "Complete HVAC solutions for commercial and industrial projects. Sales, services, support, and expert consultancy. Trusted by leading companies across Gujarat.",
+          "telephone": "+91-9428913898",
+          "email": "dharmikmehta@airvionengineers.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Sun Avenue One – 404, 4th Floor, Manekbaugh – Shyamal Road, Near Golden Tulip Bunglows, Ambawadi",
+            "addressLocality": "Ahmedabad",
+            "addressRegion": "Gujarat",
+            "postalCode": "380015",
+            "addressCountry": "IN"
+          },
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Gujarat"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://airvion.com/#website",
+          "url": "https://airvion.com/",
+          "name": "Airvion Engineers",
+          "publisher": {
+            "@id": "https://airvion.com/#business"
+          },
+          "inLanguage": "en-IN"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://airvion.com/#webpage",
+          "url": "https://airvion.com/",
+          "name": "Airvion Engineers - Premium HVAC Solutions | Commercial & Industrial",
+          "isPartOf": {
+            "@id": "https://airvion.com/#website"
+          },
+          "about": {
+            "@id": "https://airvion.com/#business"
+          },
+          "mainEntity": {
+            "@id": "https://airvion.com/#business"
+          },
+          "inLanguage": "en-IN"
+        },
+        {
+          "@type": "Service",
+          "@id": "https://airvion.com/#service-installation",
+          "name": "HVAC Installation",
+          "description": "Professional HVAC system installation and commissioning",
+          "serviceType": "HVAC system installation and commissioning",
+          "provider": {
+            "@id": "https://airvion.com/#business"
+          },
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Gujarat"
+          }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://airvion.com/#service-maintenance",
+          "name": "HVAC Maintenance",
+          "description": "Annual contracts and preventive maintenance programs",
+          "serviceType": "Annual contracts and preventive maintenance programs",
+          "provider": {
+            "@id": "https://airvion.com/#business"
+          },
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Gujarat"
+          }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://airvion.com/#service-emergency-support",
+          "name": "HVAC Emergency Support",
+          "description": "24/7 breakdown services and quick repairs",
+          "serviceType": "Breakdown services and repairs",
+          "provider": {
+            "@id": "https://airvion.com/#business"
+          },
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Gujarat"
+          }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://airvion.com/#service-design",
+          "name": "HVAC Design",
+          "description": "Expert consultancy and HVAC system design services",
+          "serviceType": "HVAC consultancy and system design",
+          "provider": {
+            "@id": "https://airvion.com/#business"
+          },
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Gujarat"
+          }
+        }
+      ]
     }
     </script>
   </body>
